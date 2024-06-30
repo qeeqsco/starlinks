@@ -1,0 +1,5 @@
+/.html
+Cache-Control: public, max-age=2592000
+
+/*.{css,js,jpg,jpeg,png,gif,ico}
+Cache-Control: public, max-age=2592000
