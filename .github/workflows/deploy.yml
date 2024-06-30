@@ -1,38 +1,30 @@
-name: Deploy with Cache-Control Headers
+name: Deploy Website
 
 on:
   push:
     branches:
-      - main  # or your default branch
+      - main  # Adjust branch name if different
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
+    
     steps:
-    - name: Checkout
+    - name: Checkout code
       uses: actions/checkout@v2
 
     - name: Set up Node.js
       uses: actions/setup-node@v2
       with:
-        node-version: '14'
+        node-version: '14'  # Use Node.js version 14
 
-    - name: Install dependencies
-      run: npm install
-
-    - name: Build the site
-      run: npm run build
-
-    - name: Configure headers
+    - name: Create _headers file
       run: |
-        echo '/.html
-        Cache-Control: public, max-age=2592000' >> public/_headers
-        echo '/*.{css,js,jpg,jpeg,png,gif,ico}
-        Cache-Control: public, max-age=2592000' >> public/_headers
+        echo '/*\n  Cache-Control: max-age=31536000' > _headers
+        mv _headers public/_headers  # Move _headers to the public directory, adjust path if necessary
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./public
+        publish_dir: ./public  # Adjust if your HTML files are not in the 'public' directory
