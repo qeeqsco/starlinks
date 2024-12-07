@@ -784,6 +784,112 @@ h6 {
   font-size: 14px;
 }
 
+/* Custom Product Menu */
+.custom-product-menu {
+  background-color: #ffffff;
+  padding: 80px 20px;
+}
+
+.menu-intro {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.menu-intro h1 {
+  font-size: 3rem;
+  color: #222222;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.menu-intro p {
+  font-size: 1.2rem;
+  color: #555555;
+}
+
+.custom-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.custom-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 30px;
+  justify-content: center;
+}
+
+.custom-card {
+  background: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  border-radius: 20px;
+  padding: 35px 25px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease-out;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  width: 240px;
+}
+
+.custom-card:hover {
+  background-color: #c5ced4;
+  color: #ffffff;
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+}
+
+.custom-card a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.custom-icon {
+  font-size: 3.5rem;
+  color: #004174;
+  margin-bottom: 20px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.custom-card:hover .custom-icon {
+  color: #ffffff;
+  transform: rotate(10deg);
+}
+
+.custom-icon img {
+  max-width: 100px;
+  max-height: 100px;
+  object-fit: contain;
+  margin-bottom: 20px;
+}
+
+.custom-card h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+.custom-card:hover h3 {
+  color: #0c0c0c;
+}
+
+/* Animation for Cards */
+.custom-card {
+  opacity: 0; /* Initially invisible */
+  transform: translateY(50px); /* Positioned slightly down */
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Smooth transition */
+}
+
+.custom-card.animate {
+  opacity: 1; /* Fully visible */
+  transform: translateY(0); /* Move to original position */
+}
+
 .page-title .breadcrumbs ol li+li {
   padding-left: 10px;
 }
