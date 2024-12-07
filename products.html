@@ -313,12 +313,12 @@
   <div id="preloader"></div>
 
   <script>
-    // Function to check if an element is in the viewport
+    // Function to check if an element is in the viewport (partially visible)
     function isInViewport(element) {
       const rect = element.getBoundingClientRect();
       return (
-        rect.top >= 0 &&
-        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
+        rect.top < (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.bottom > 0
       );
     }
   
@@ -332,10 +332,16 @@
       });
     }
   
+    // Use requestAnimationFrame for better performance
+    function handleScroll() {
+      window.requestAnimationFrame(animateCardsOnScroll);
+    }
+  
     // Add scroll and load event listeners
     document.addEventListener('DOMContentLoaded', animateCardsOnScroll);
-    window.addEventListener('scroll', animateCardsOnScroll);
+    window.addEventListener('scroll', handleScroll);
   </script>
+  
   
 
   <!-- Include jQuery -->
