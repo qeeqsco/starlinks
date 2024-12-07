@@ -815,10 +815,12 @@ h6 {
 /* Grid for Custom Cards */
 .custom-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* Responsive grid */
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); 
   gap: 30px;
-  justify-content: center;
+  justify-content: center; 
   padding: 20px;
+  max-width: 1200px; /* Optional: Restrict overall width */
+  margin: 0 auto; /* Center the entire grid */
 }
 
 /* Custom Card Styles */
@@ -829,7 +831,6 @@ h6 {
   padding: 35px 25px;
   text-align: center;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-  transition: all 0.3s ease-out;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -838,15 +839,18 @@ h6 {
   height: 300px;
   width: 100%;
   max-width: 240px;
-  margin: 0 auto;
-  opacity: 0; /* Animation: Initially invisible */
-  transform: translateY(50px); /* Animation: Slightly down */
+  margin: 0 auto; /* Center each card within its grid cell */
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  
+  /* Animation: Initially hidden */
+  opacity: 0; 
+  transform: translateY(50px); 
 }
 
+/* Animation Trigger */
 .custom-card.animate {
-  opacity: 1; /* Fully visible */
-  transform: translateY(0); /* Move to original position */
+  opacity: 1; 
+  transform: translateY(0); 
 }
 
 .custom-card:hover {
@@ -894,14 +898,15 @@ h6 {
 /* Mobile Adjustments */
 @media (max-width: 768px) {
   .custom-grid {
-    grid-template-columns: 1fr; /* Single column layout */
+    grid-template-columns: 1fr; /* Single column */
+    justify-content: center;
   }
 
   .custom-card {
-    height: auto;
-    max-width: 90%;
+    max-width: 90%; /* Allow cards to expand more on small screens */
   }
 }
+
 
 
 .page-title .breadcrumbs ol li+li {
