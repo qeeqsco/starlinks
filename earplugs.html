@@ -371,6 +371,33 @@
  
 
   </footer>
+  <script>
+    function filterProducts() {
+  // Get user input and selected brand
+  const searchInput = document.getElementById("searchInput").value.toLowerCase();
+  const brandFilter = document.getElementById("brandSort").value.toLowerCase();
+
+  // Get all product cards
+  const cards = document.querySelectorAll(".safety-caps-card");
+
+  cards.forEach((card) => {
+    const title = card.getAttribute("data-title").toLowerCase();
+    const brand = card.getAttribute("data-brand").toLowerCase();
+
+    // Check if the card matches the search input and brand filter
+    const matchesSearch = title.includes(searchInput);
+    const matchesBrand = brandFilter === "all" || brand === brandFilter;
+
+    // Show or hide the card based on the filter
+    if (matchesSearch && matchesBrand) {
+      card.style.display = "block";
+    } else {
+      card.style.display = "none";
+    }
+  });
+}
+  </script>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script>
   // Select all safety cards
