@@ -907,7 +907,442 @@ h6 {
   }
 }
 
+/* Search and Filter Container */
+.search-filter-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40px;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
 
+/* Search Bar */
+.search-bar {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+  position: relative;
+}
+
+.search-bar input[type="text"] {
+  width: 100%;
+  padding: 12px 20px;
+  border: 2px solid #e0e0e0;
+  border-radius: 30px;
+  font-size: 16px;
+  outline: none;
+  transition: all 0.3s ease;
+  background-color: #f9f9f9;
+}
+
+.search-bar input[type="text"]:focus {
+  border-color: #004174;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.2);
+}
+
+.search-bar .search-button {
+  position: absolute;
+  right: 10px;
+  padding: 10px;
+  background-color: transparent;
+  border: none;
+  color: #004174;
+  font-size: 20px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.search-bar .search-button:hover {
+  color: #004174;
+}
+
+/* Brand Filter */
+.brand-filter {
+  margin-top: 15px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.brand-filter select {
+  width: 100%;
+  padding: 12px 20px;
+  border: 2px solid #e0e0e0;
+  border-radius: 30px;
+  font-size: 16px;
+  outline: none;
+  background-color: #f9f9f9;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.brand-filter select:focus {
+  border-color: #004174;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.2);
+}
+
+/* Smooth animations */
+.search-bar, .brand-filter {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Safety Card Container Styling */
+/* General Section Styling */
+.safety-products {
+  padding: 50px 20px;
+}
+
+.safety-intro {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.safety-heading {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #222;
+}
+
+/* Safety Card Container Styling */
+.safety-container {
+  max-width: 3000px;
+  margin: 0 auto;
+}
+
+.safety-menu {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+}
+
+/* Individual Card Styling */
+.safety-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+  position: relative;
+  cursor: pointer;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+/* Hover Effects for the Card */
+.safety-card:hover {
+  transform: translateY(-10px); /* Slight lift */
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2); /* Professional shadow */
+}
+
+/* Image Container */
+.safety-card-image {
+  position: relative;
+  width: 100%;
+  height: 200px; /* Fixed height for consistent display */
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* Image Styling */
+.safety-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Ensures the image scales proportionally to fit */
+  transition: transform 0.1s ease; /* Smooth zoom effect */
+}
+
+/* Image Hover Zoom */
+.safety-card:hover .safety-card-image img {
+  transform: scale(1.1); /* Zooms the image */
+}
+
+/* Title Overlay with Fading Background */
+.safety-card-title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px 0; /* Adjust padding to ensure no extra height */
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #fff;
+  text-align: center;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0)); /* Perfect fade */
+  margin: 0; /* Ensure no gaps */
+  box-sizing: border-box; /* Include padding in dimensions */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .safety-menu {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  .safety-card-title {
+    font-size: 1rem; /* Slightly smaller font for smaller screens */
+  }
+
+  .safety-card-image {
+    height: 150px; /* Adjusted image height for smaller screens */
+  }
+}
+
+
+@import url("https://fonts.googleapis.com/css2?family=Istok+Web:wght@400;700&display=swap");
+
+
+
+.safety-caps-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px; /* Space between cards */
+  padding: 20px;
+}
+
+.safety-caps-card {
+  position: relative;
+  width: 320px;
+  height: 480px;
+  background: #004174;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.safety-caps-card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  width: 100%;
+  height: 100%;
+  background: #f3f2f2;
+  transform: skewY(345deg);
+  transition: 0.5s;
+}
+
+.safety-caps-card:hover::before {
+  top: -70%;
+  transform: skewY(390deg);
+}
+
+.safety-caps-card::after {
+  content: "STARLINKS";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  font-weight: 600;
+  font-size: 3.7em;
+  color: rgba(0, 0, 0, 0.1);
+}
+
+.safety-caps-imgBox {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+  z-index: 1;
+}
+
+.safety-caps-mouse {
+  height: 300px;
+  width: auto;
+}
+
+.safety-caps-contentBox {
+  position: relative;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 2;
+}
+
+.safety-caps-contentBox h3 {
+  font-size: 18px;
+  color: white;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: -80px;
+  text-align: center;
+}
+
+.safety-caps-contentBox .safety-caps-price {
+  font-size: 24px;
+  color: white;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.safety-caps-contentBox .safety-caps-buy {
+  position: relative;
+  top: 100px;
+  opacity: 0;
+  padding: 10px 30px;
+  margin-top: 15px;
+  color: #000000;
+  text-decoration: none;
+  background: #ffffff;
+  border-radius: 30px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: 0.5s;
+}
+
+.safety-caps-card:hover .safety-caps-contentBox .safety-caps-buy {
+  top: 0;
+  opacity: 1;
+}
+
+
+.safety-caps-logo {
+  text-align: center;
+  margin: 10px 0; /* Adjust spacing as necessary */
+}
+
+.brand-logo {
+  width: 50px; /* Adjust logo size */
+  height: auto;
+  object-fit: contain;
+}
+
+
+
+.detailsection{
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.product-container {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 90%;
+  max-width: 1000px;
+  padding: 20px;
+}
+.product-gallery {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.main-image img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 10px;
+}
+.thumbnail-images {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+.thumb {
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.thumb:hover {
+  transform: scale(1.1);
+}
+.product-details {
+  flex: 1;
+  padding: 20px;
+}
+.color-selector {
+  display: flex;
+  gap: 10px;
+  margin: 10px 0;
+}
+.color-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+}
+.color-btn.selected {
+  border: 2px solid black;
+}
+.quantity-selector {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0;
+}
+.qty-btn {
+  padding: 5px 10px;
+  border: none;
+  background: #ddd;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.qty-btn:hover {
+  background: #bbb;
+}
+.add-to-cart {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background: #004174;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 16px;
+}
+.add-to-cart:hover {
+  background: #02599b;
+}
+@media (min-width: 768px) {
+  .product-container {
+      flex-direction: row;
+  }
+  .product-details {
+      order: -1;
+  }
+}
 
 .page-title .breadcrumbs ol li+li {
   padding-left: 10px;

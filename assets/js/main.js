@@ -164,4 +164,73 @@
   window.addEventListener('load', navmenuScrollspy);
   document.addEventListener('scroll', navmenuScrollspy);
 
-})();
+})()
+
+// Toggle Cart Popup
+function toggleCartPopup() {
+  const cartPopup = document.getElementById('cart-popup');
+  cartPopup.style.display = (cartPopup.style.display === 'block') ? 'none' : 'block';
+  displayCartItems(); // Show items in the cart
+}
+
+// Add Product to Cart and Save to Local Storage
+function addToCart(product) {
+  let cart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
+  cart.push(product);
+  localStorage.setItem('shoppingCart', JSON.stringify(cart));
+  updateCartCount(); 
+}
+
+// Display Cart Items in the Popup
+function displayCartItems() {
+  let cartItems = JSON.parse(localStorage.getItem('shoppingCart')) || [];
+  let cartList = document.getElementById('cart-items');
+  cartList.innerHTML = '';
+
+  cartItems.forEach((item, index) => {
+    let li = document.createElement('li');
+    li.innerHTML = `${item.name} - Qty: ${item.quantity} 
+    <button onclick="removeFromCart(${index})">Remove</button>`;
+    cartList.appendChild(li);
+  });
+
+  updateCartCount();
+}
+
+// Remove Item from Cart
+function removeFromCart(index) {
+  let cart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
+  cart.splice(index, 1);
+  localStorage.setItem('shoppingCart', JSON.stringify(cart));
+  displayCartItems(); 
+}
+
+// Update the Cart Count
+function updateCartCount() {
+  let cart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
+  document.getElementById('cart-count').textContent = cart.length;
+}
+
+// WhatsApp Checkout
+function checkout() {
+  let cartItems = JSON.parse(localStorage.getItem('shoppingCart')) || [];
+  if (cartItems.length === 0) {
+    alert('Your cart is empty.');
+    return;
+  }
+
+  let message = 'Order Details:\n';
+  cartItems.forEach(item => {
+    message += `${item.name} - Qty: ${item.quantity}\n`;
+  });
+
+  let encodedMessage = encodeURIComponent(message);
+  window.open(`https://api.whatsapp.com/send?phone=YOUR_PHONE_NUMBER&text=${encodedMessage}`, '_blank');
+}
+
+// Load Cart on Every Page
+document.addEventListener("DOMContentLoaded", function () {
+  updateCartCount();
+});
+
+
