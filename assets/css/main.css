@@ -1235,6 +1235,17 @@ h6 {
   object-fit: contain;
 }
 
+img.blended-photo {
+  border-radius: 1rem; /* Rounded corners */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  transition: transform 0.4s ease, filter 0.4s ease;
+  filter: brightness(98%) contrast(105%);
+}
+
+img.blended-photo:hover {
+  transform: scale(1.02); /* Slight zoom effect on hover */
+  filter: brightness(100%) contrast(110%);
+}
 
 
 .detailsection{
